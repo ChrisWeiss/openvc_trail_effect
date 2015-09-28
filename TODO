@@ -1,0 +1,6 @@
+- Validate input arguments: for example some ints must be >= 0
+- Add options to control the delay of when frames are added or removed from
+  the trail
+- Some trivial cases of trails just need a framebuffer with no need to keep
+  the history of frames, see if the code handling those cases can be optimized
+- Clean up the code? My C++ is a little C-ish...

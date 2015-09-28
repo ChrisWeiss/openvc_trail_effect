@@ -1,0 +1,63 @@
+opencv_trail_effect is an experiment about recreating the "trail effect"[1],
+which can be seen in some cool music videos, automatically and in real-time,
+and even without the use of a green-screen.
+
+[1] http://dailypsychedelicvideo.com/tag/trail-effect/
+
+Some examples of it are:
+
+  The Jacksons - Blame It On The Boogie - https://www.youtube.com/watch?v=mkBS4zUjJZo
+  OK Go - WTF? - https://www.youtube.com/watch?v=12zJw9varYE
+  Elisa - L'Anima Vola - https://www.youtube.com/watch?v=MqhxIQD16EA
+
+opencv_trail_effect draws a trail after performing foreground segmentation
+(using thresholding or background subtraction) using OpenCV.
+
+The "sole" assumptions for a decent effect are that:
+
+  1. the camera does not move;
+  2. the background lighting in the scene is quite stable (when doing
+     background subtraction it is recommended to disable auto-gain in the
+     camera, and avoiding any artifact introduced by the power line
+     frequency).
+
+
+Examples of use
+---------------
+
+The effect in "Blame It On The Boogie" could be described as a short faded
+trail and can be achieved with this command line:
+
+  $ ./opencv_trail_effect -l 12 -s background -d fadeaccumulate
+
+
+The effect in "WTF?" is equivalent to an infinite trail in which the isolated
+foreground is copied on the background and stays there, it can be achieved
+with this command line:
+
+  $ ./opencv_trail_effect -l -1 -s background -d copy
+
+
+The effect in "L'Anima Vola" seems to have a "catch-up" behavior; that one can
+be done by drawing the trail in reverse, with this command line:
+
+  $ ./opencv_trail_effect -l 30 -s background -d copy -r
+
+
+Another effect seen in movies can be obtained by doing the average of the
+frames in the trail, possibly with the most recent frame drawn on top:
+
+  $ ./opencv_trail_effect -l 10 -s background -d average -B
+
+
+Side note
+-------------------
+
+These effects can bring to mind other cool effects in music videos, like the
+frame shuffling effect in Peter Gabriel's Sledgehammer
+(https://www.youtube.com/watch?v=OJWJE0x7T4Q), that one can be done with the
+nervousTV plugin from effectv
+(https://fukuchi.org/research/effectv/index.html.en) or frei0r filters
+(https://www.dyne.org/software/frei0r/), for example with:
+
+  $ gst-launch-1.0 -v v4l2src ! videoconvert ! frei0r-filter-nervous ! videoconvert ! autovideosink
