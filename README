@@ -23,7 +23,7 @@ A few conditions are required to create a decent effect:
      subtraction it is recommended to disable auto-gain in the camera, and
      avoid any artifact introduced by the power line frequency);
   3. the subject should enter the scene only after the background learning
-     phase has finished, i.e. after opencv_trail_effect has showed the preview
+     phase has finished, i.e. after opencv_trail_effect has shown the preview
      window.
 
 
