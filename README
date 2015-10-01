@@ -53,6 +53,8 @@ frames in the trail, possibly with the most recent frame drawn on top:
 
   $ ./opencv_trail_effect -l 10 -s background -d average -B
 
+Here is a video showing the examples from above:
+https://www.youtube.com/watch?v=X3oRozxt2O4
 
 Side note
 -------------------
