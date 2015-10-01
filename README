@@ -13,7 +13,8 @@ Some examples of it are:
 opencv_trail_effect draws a trail after performing foreground segmentation
 using OpenCV.
 
-Segmentation can done using either thresholding or background subtraction.
+Segmentation in opencv_trail_effect can done using either thresholding or
+background subtraction.
 
 A few conditions are required to create a decent effect:
 
