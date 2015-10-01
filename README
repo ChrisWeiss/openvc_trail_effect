@@ -15,13 +15,15 @@ using OpenCV.
 
 Segmentation can done using either thresholding or background subtraction.
 
-The "sole" assumptions for a decent effect are that:
+A few conditions are required to create a decent effect:
 
-  1. the camera does not move;
-  2. the background lighting in the scene is quite stable (when doing
-     background subtraction it is recommended to disable auto-gain in the
-     camera, and avoiding any artifact introduced by the power line
-     frequency).
+  1. the camera should not move;
+  2. the lighting in the scene should be quite stable (when doing background
+     subtraction it is recommended to disable auto-gain in the camera, and
+     avoid any artifact introduced by the power line frequency);
+  3. the subject should enter the scene only after the background learning
+     phase has finished, i.e. after opencv_trail_effect has showed the preview
+     window.
 
 
 Examples of use
