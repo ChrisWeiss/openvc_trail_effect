@@ -11,7 +11,9 @@ Some examples of it are:
   Elisa - L'Anima Vola - https://www.youtube.com/watch?v=MqhxIQD16EA
 
 opencv_trail_effect draws a trail after performing foreground segmentation
-(using thresholding or background subtraction) using OpenCV.
+using OpenCV.
+
+Segmentation can done using either thresholding or background subtraction.
 
 The "sole" assumptions for a decent effect are that:
 
